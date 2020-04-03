@@ -12,7 +12,6 @@ class Solution:
                 tmp = matrix[row][column]
                 matrix[row][column] = matrix[column][row] 
                 matrix[column][row] = tmp
-        print(matrix)
                    
         ## Flip the array  
         
