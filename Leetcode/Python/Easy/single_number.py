@@ -8,4 +8,3 @@ class Solution:
     
 s = Solution()
 print(s.singleNumber([2,2,1]))
-        
