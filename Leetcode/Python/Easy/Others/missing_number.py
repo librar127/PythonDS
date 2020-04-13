@@ -1,4 +1,4 @@
-def missingNumber(self, nums: List[int]) -> int:
+def missingNumber(nums):
     
     n = len(nums)
     sum = 0
