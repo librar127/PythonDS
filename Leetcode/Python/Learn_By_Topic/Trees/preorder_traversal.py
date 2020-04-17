@@ -15,14 +15,14 @@ class Solution:
         self.traverse(root.left, result)
         self.traverse(root.right, result)
             
-    def preorderTraversal_recursive(self, root: TreeNode) -> List[int]:
+    def preorderTraversal_recursive(self, root):
         
         result = []
         self.traverse(root, result)
         return result
         
         
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
+    def preorderTraversal(self, root):
         if not root:
             return []
             
