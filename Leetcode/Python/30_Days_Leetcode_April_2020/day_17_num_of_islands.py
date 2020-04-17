@@ -35,9 +35,6 @@ class Solution:
                 if grid[i][j] == '1':
                     self.traverse_island(grid, i, j)
                     count += 1
-                
-                #print(grid, '\n')
-                #return count
         
         return count
     
