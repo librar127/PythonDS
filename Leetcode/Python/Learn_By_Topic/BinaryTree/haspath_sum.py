@@ -6,7 +6,7 @@
 #         self.right = None
 
 class Solution:
-    def hasPathSum_Recursion(self, root):
+    def hasPathSum_Recursion(self, root, sum) -> bool:
         if not root:
             return False
         
@@ -16,7 +16,7 @@ class Solution:
             return self.hasPathSum(root.left, sum-root.val) or self.hasPathSum(root.right, sum-root.val)
         
     
-    def hasPathSum(self, root):
+    def hasPathSum(self, root, sum):
         if not root:
             return False
         
