@@ -17,7 +17,7 @@ class Solution:
         return False        
         
     
-    def isSymmetric(self, root: TreeNode) -> bool:
+    def isSymmetric(self, root):
         if not root:
             return True
         
@@ -25,7 +25,7 @@ class Solution:
         
         
     # Iterative using Level Order
-    def isSymmetric_Iterative(self, root: TreeNode) -> bool:
+    def isSymmetric_Iterative(self, root):
         
         if not root:
             return True
