@@ -6,7 +6,7 @@
 #         self.right = None
 
 class Solution:
-    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    def levelOrder(self, root):
         
         if not root:
             return []
