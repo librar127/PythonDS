@@ -30,8 +30,7 @@ class Solution:
                 root = root.left
             
             if not stack:
-                return False
-            
+                return False            
             
             (node, sum) = stack.pop()                
             if node and not node.left and not node.right and sum == 0:
