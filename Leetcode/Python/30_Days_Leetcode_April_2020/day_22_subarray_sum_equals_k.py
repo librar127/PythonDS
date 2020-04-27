@@ -1,43 +1,32 @@
 class Solution:
     def subarraySum_bf(self, nums, k):
-        
-        sum_cnt = 0
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)+1):
-                sum = 0
-                for k in range(i, j):
-                    sum += nums[k]
-                    
-                if sum ==s:
-                    sum_cnt += 1
-                
-        return sum_cnt
-    
-    def subarraySum_hint2(self, nums, k):
         sum_count = 0
-        sum = [0]*(len(nums)+1)
-        for i in range(1, len(nums)+1):
-            sum[i] = sum[i-1] + nums[i-1]
-        print(sum)
         
         for i in range(len(nums)):
-            for j in range(i+1, len(nums)+1):
-                if (sum[j] - sum[i]) == k:
+            sum = 0
+            for j in range(i, len(nums)):
+                sum += nums[j]
+                if sum == k:
                     sum_count += 1
-                    
                     
         return sum_count
     
     def subarraySum(self, nums, k):
-        count = s = 0
-        Map = {}
-        Map[0] = 1 
-        for i in range(len(nums)):
-            s += nums[i]
-            if s - k in Map:
-                count += Map.get(s-k)
-            Map[s] = Map.get(s,0) +1 
-        return count 
+        sum_count = 0
+        hashmap = {}
+        hashmap[0] = 1
+        sum = 0
+        
+        for _, each in enumerate(nums):
+            sum += each
+            
+            if sum-k in hashmap:
+                sum_count += hashmap[sum-k]
+                                
+            hashmap[sum] = hashmap.get(sum, 0) + 1
+                    
+        return sum_count
+    
         
         
 s = Solution()
