@@ -7,7 +7,6 @@ class Solution:
         while start <= end:
             mid = start + (end - start) // 2
             
-             
             if mid!=start and mid!=end:
                 # no rotation if end is larger than start, monotonous array
                 if nums[end] > nums[start]:
@@ -24,8 +23,7 @@ class Solution:
                         end = mid - 1
             # only two elements left
             elif mid == start:
-                return min(nums[start], nums[end])
-             
+                return min(nums[start], nums[end]) 
                 
         return nums[0]
         
