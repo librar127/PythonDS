@@ -1,7 +1,6 @@
 class Solution:
     def longestCommonSubsequence(self, text1, text2):
         
-        max_len = 0
         arr = []
         m = len(text1)
         n = len(text2)
