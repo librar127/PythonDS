@@ -7,7 +7,7 @@
 #    def dimensions(self) -> list[]:
 
 class Solution:
-    def leftMostColumnWithOne(self, binaryMatrix: 'BinaryMatrix') -> int:
+    def leftMostColumnWithOne_Hint2(self, binaryMatrix: 'BinaryMatrix') -> int:
         
         [row, col] = binaryMatrix.dimensions()
         
@@ -32,7 +32,7 @@ class Solution:
         
         return -1
     
-    def leftMostColumnWithOne_hint1(self, binaryMatrix: 'BinaryMatrix') -> int:
+    def leftMostColumnWithOne_Hint1(self, binaryMatrix: 'BinaryMatrix') -> int:
         [row, col] = binaryMatrix.dimensions()
         
         min_index = 100
