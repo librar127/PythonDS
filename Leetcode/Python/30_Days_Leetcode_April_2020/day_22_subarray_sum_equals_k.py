@@ -28,7 +28,7 @@ class Solution:
                     
         return sum_count
     
-    def subarraySum(s(self, nums, k):
+    def subarraySum(self, nums, k):
         count = s = 0
         Map = {}
         Map[0] = 1 
