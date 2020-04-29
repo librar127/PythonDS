@@ -8,7 +8,6 @@ class FirstUnique:
             else:                
                 self.hashmap[each] = 1
         
-    
     def __init__(self, nums):
         self.nums = nums
         self.hashmap = {}
