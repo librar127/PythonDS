@@ -8,7 +8,7 @@
 class Solution:
     
     # Bottom-Up Recursion    
-    def maxDepth_recursion(self, root: TreeNode) -> int:
+    def maxDepth_recursion(self, root):
         
         if not root:
             return 0
@@ -19,7 +19,7 @@ class Solution:
         return max(left_depth, right_depth)
     
     # Iterative Approach - Using Queue   
-    def maxDepth(self, root: TreeNode) -> int:
+    def maxDepth(self, root):
         
         if not root:
             return 0
