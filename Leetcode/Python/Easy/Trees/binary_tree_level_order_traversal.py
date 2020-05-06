@@ -1,38 +1,69 @@
 # Definition for a binary tree node.
 class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 class Solution:
-    def levelOrder(self, root):
+    def inorder_traversal(self, root, p_list):
         
         if not root:
-            return []
+            return
         
-        queue = [root]
-        queue.insert(0, None)
+        self.inorder_traversal(root.left, p_list)
+        p_list.append(root.val)
+        self.inorder_traversal(root.right, p_list)
         
-        result = []
-        level_result = []
+        return p_list
         
-        while queue:
+    def isValidBST_Jugad(self, root):
+        
+        if not root:
+            return True
+        
+        p_list = self.inorder_traversal(root, [])
+        if len(p_list) == len(set(p_list)) and p_list == sorted(p_list):
+            return True
+        else:
+            return False
+     
+    def validBST_recusrion(self, root, lower, upper):
+        
+        if not root:
+            return True
+        
+        if root.val <= lower or root.val >= upper:
+            return False
+        
+        if not self.validBST_recusrion(root.left, lower, root.val):
+            return False
+        if not self.validBST_recusrion(root.right, root.val, upper):
+            return False
+        
+        return True
+        
+    def isValidBST(self, root):
+        
+        if not root:
+            return True
+        
+        #return self.validBST_recusrion(root, float('-inf'), float('inf'))
+        
+        stack = [(root, float('-inf'), float('inf')),]
+        
+        while stack:
             
-            root = queue.pop()
-            if root:
-                level_result.insert(0, root.val)
+            root, lower, upper = stack.pop()
 
-                if root.left:
-                    queue.insert(0, root.left)
-                if root.right:
-                    queue.insert(0, root.right)
-                
-            else:   
-                result.append(level_result[::-1])
-                level_result = []
-                if queue:
-                    queue.insert(0, None)
-                
-        return result
-        
+            if not root:
+                continue
+
+            if root.val <= lower or root.val >= upper:
+                return False
+
+            stack.append((root.right, root.val, upper))
+            stack.append((root.left, lower, root.val))
+            
+            
+        return True
