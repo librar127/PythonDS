@@ -16,7 +16,7 @@ class Solution:
         
         return p_list
         
-    def isValidBST(self, root: TreeNode) -> bool:
+    def isValidBST(self, root):
         
         if not root:
             return True
