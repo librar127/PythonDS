@@ -3,7 +3,7 @@ class Solution:
         max_count_so_far = 0
         current_count = 0
         
-        for index, each in enumerate(nums):
+        for _, each in enumerate(nums):
             if each == 1:
                 current_count += 1
             else:
