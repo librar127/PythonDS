@@ -16,7 +16,7 @@ class Solution:
         if len(nums) == 2:
             return max(nums[0], nums[1])
         
-        for index, each in enumerate(nums):
+        for _, each in enumerate(nums):
             
             if each > first:
                 if second > third:
