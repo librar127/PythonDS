@@ -20,8 +20,7 @@ class Solution:
             
         return max_consecutive_ones
     
-class Solution(object):
-    def findMaxConsecutiveOnes(self, nums):
+    def findMaxConsecutiveOnes_2(self, nums):
         # previous and current length of consecutive 1 
         pre, curr, maxlen = -1, 0, 0
         for n in nums:
