@@ -5,7 +5,7 @@ class ListNode:
         self.next = None
 
 class Solution:
-    def processList(self, diff_count, headA: ListNode, headB: ListNode):
+    def processList(self, diff_count, headA, headB):
         count = 0
         while count < diff_count:
             print(count, diff_count)
