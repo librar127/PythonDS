@@ -99,7 +99,6 @@ class MyLinkedList:
             return
             
         head = self.head
-        current = head
         
         if index == 0:
             next = head.next
