@@ -11,7 +11,6 @@ class Solution:
             return head
         
         while head and head.val == val:
-            node = head
             head = head.next
         
         current = head
