@@ -6,7 +6,7 @@ class Node:
         self.next = next
         self.child = child
 
-class Solution:
+cclass Solution:
     def flatten(self, head: 'Node') -> 'Node':
         
         if not head:
@@ -33,9 +33,5 @@ class Solution:
             
             prev = node    
         
-        head = new_head
-        new_head = new_head.next
-        head = None
-        new_head.prev = head
-        return new_head
-    
+        new_head.next.prev = None
+        return new_head.next
