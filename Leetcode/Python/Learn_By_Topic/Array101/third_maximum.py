@@ -4,7 +4,6 @@ class Solution:
     def thirdMax(self, nums):
         
 
-        max_ = sys.maxsize
         min_ = -sys.maxsize - 1
         first = min_
         second = min_
