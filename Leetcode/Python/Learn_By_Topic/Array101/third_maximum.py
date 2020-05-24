@@ -3,7 +3,6 @@ import sys
 class Solution:
     def thirdMax(self, nums):
         
-
         min_ = -sys.maxsize - 1
         first = min_
         second = min_
