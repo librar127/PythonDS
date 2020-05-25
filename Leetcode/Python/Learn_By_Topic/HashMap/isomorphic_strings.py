@@ -15,4 +15,4 @@ class Solution:
                 hashmap[each] = t[index]   
                 hashset.add(t[index])
         
-        return Trues
+        return True
