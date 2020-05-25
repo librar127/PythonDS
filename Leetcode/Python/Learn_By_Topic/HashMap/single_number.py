@@ -10,11 +10,10 @@ class Solution:
         for each in nums:
             sum -= each
 
-        return sum
+        #return sum
     
         # Solution 2
-        xor = 0
-        
+        xor = 0        
         for each in nums:
             xor ^= each
         return xor
