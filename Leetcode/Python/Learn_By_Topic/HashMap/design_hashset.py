@@ -1,65 +1,39 @@
-## It does not pass all testcases, need to relook 
-
+## Without Collision
 class MyHashSet:
-    
+        
     def __init__(self):
         """
         Initialize your data structure here.
-        """
-        self.hashset = []
-        self.modulo = 10000
-        
-        index = 0
-        while index < self.modulo:
-            self.hashset.insert(index, None)
-            index += 1        
+        """        
+        self.modulo = 1000000
+        self.hashset = [None]*self.modulo
 
     def add(self, key: int) -> None:
+        """
+        Add an item to Hashset if not already exists        
+        Arguments: Key to be inserted        
+        Return: None
+        """
         location = key % self.modulo
-        val = self.hashset[location]
-        if val:
-            if isinstance(val, list):
-                if key not in val:
-                    val.append(key)
-                    self.hashset[location] = val
-            else:
-                if key == val:
-                    return
-                new_list = []
-                new_list.append(val)
-                new_list.append(key)
-                self.hashset[location] = new_list
-        else:
+        if not self.hashset[location]:
             self.hashset[location] = key
                 
     def remove(self, key: int) -> None:
-        if self.contains(key):            
-            location = key % self.modulo
-            val = self.hashset[location]
-            if isinstance(val, list):
-                val.remove(key)
-                self.hashset[location] = val                
-            else:
-                self.hashset[location] = None
+        """
+        Delete an item from Hashset if already exists   
+             
+        Arguments: Key to be deleted        
+        Return: None        
+        """
+        location = key % self.modulo
+        self.hashset[location] = None
 
     def contains(self, key: int) -> bool:
         """
-        Returns true if this set contains the specified element
+        Returns true if this set contains the specified element        
+        Argument: Key to be searched for        
+        return: Boolean flag with True or False
         """
         location = key % self.modulo
-        val = self.hashset[location]
-        if val:
-            if isinstance(val, list):
-                for each in val:
-                    if each == key:
-                        return True
-            else:
-                return val == key
-        else:
-            return False
-
-# Your MyHashSet object will be instantiated and called as such:
-# obj = MyHashSet()
-# obj.add(key)
-# obj.remove(key)
-# param_3 = obj.contains(key)
+        return self.hashset[location] == key
+    
