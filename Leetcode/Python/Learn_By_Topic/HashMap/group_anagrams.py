@@ -1,3 +1,4 @@
+# Tn: O(NKLogK) Sn: O(NK)
 class Solution:
     def groupAnagrams(self, strs):    
     
