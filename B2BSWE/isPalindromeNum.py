@@ -2,7 +2,7 @@
 import math
 
 class Solution:
-    def isPalindrome(self, x):
+    def isPalindrome_2(self, x):
         '''
         :type x: int
         :rtype: bool
