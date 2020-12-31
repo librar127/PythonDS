@@ -1,7 +1,7 @@
 
 import math
 class Solution:
-    def powerOfTwo_1(self, input):
+    def powerOfTwo(self, input):
         '''
         :type input: int
         :rtype: bool
@@ -10,12 +10,12 @@ class Solution:
             return False
             
         x = math.log2(input)
-        if x%2==0:
-            return True
-        else:
-            return False
+        num = "{:.1f}".format(x)
+        decimal_num = num.split('.')[1]
+        return decimal_num == '0'
         
-    def powerOfTwo(self, input):
+        
+    def powerOfTwo_1(self, input):
         
         if input <= 0:
             return False
@@ -23,4 +23,4 @@ class Solution:
         return (input & (input -1)) == 0
     
 s = Solution()
-print(s.powerOfTwo(8))
+print(s.powerOfTwo(6))
