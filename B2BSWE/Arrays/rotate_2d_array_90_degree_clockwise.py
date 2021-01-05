@@ -1,6 +1,6 @@
 
 class Solution:
-    def rotate(self, matrix):
+    def rotate_1(self, matrix):
         '''
         :type matrix: list of list of int
         :rtype: list of list of int
@@ -16,6 +16,33 @@ class Solution:
               result[j][col] = matrix[i][j]
         
         return result
+      
+    def rotate(self, matrix):
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        
+        size = len(matrix)
+        
+        ## Step 1 - Transpose the array
+        for row in range(size):
+            for column in range(row, size):
+                tmp = matrix[row][column]
+                matrix[row][column] = matrix[column][row] 
+                matrix[column][row] = tmp
+                   
+        ## Flip the array          
+        for row in range(size):      
+            start_col = 0
+            end_col = size-1
+            while start_col <= end_col:
+                tmp = matrix[row][start_col] 
+                matrix[row][start_col] = matrix[row][end_col]
+                matrix[row][end_col] = tmp
+                start_col += 1
+                end_col -= 1
+                
+        return matrix
 
 
 s = Solution()
