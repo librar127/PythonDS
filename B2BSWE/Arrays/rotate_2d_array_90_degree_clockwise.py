@@ -17,7 +17,7 @@ class Solution:
         
         return result
       
-    def rotate(self, matrix):
+    def rotate_2(self, matrix):
         """
         Do not return anything, modify matrix in-place instead.
         """
@@ -41,6 +41,34 @@ class Solution:
                 matrix[row][end_col] = tmp
                 start_col += 1
                 end_col -= 1
+                
+        return matrix
+      
+    def rotate(self, matrix):
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        
+        size = len(matrix)
+        layers = int(round(size/2, 0))
+        
+        for layer in range(layers):
+          j = 0
+          while layer+j < size-layer-1:
+            top_left = matrix[layer][layer+j]
+            top_right = matrix[layer+j][size-1-layer]
+            bottom_right = matrix[size-1-layer][size-1-j-layer]
+            bottom_left = matrix[size-1-j-layer][layer]
+          
+            print(top_left, top_right, bottom_right, bottom_left)
+            matrix[layer][layer+j] =  bottom_left
+            matrix[layer+j][size-1-layer] = top_left
+            matrix[size-1-layer][size-1-j-layer] = top_right
+            matrix[size-1-j-layer][layer] = bottom_right
+            
+            print(matrix[layer][layer+j], matrix[layer+j][size-1-layer], matrix[size-1-layer][size-1-j], matrix[size-1-j][layer])
+            
+            j += 1
                 
         return matrix
 
