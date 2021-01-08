@@ -13,14 +13,15 @@ class Solution:
         
         result = [2, 3]
         for each in range(4, n, 1):
-            test_list = range(2, each-1)            
-            out_list = [True if each%i == 0 else False for i in test_list]
-            if any(out_list):
-                continue
-            else:
+            prime = True           
+            for i in range(2, each-1):
+                if each%i == 0:
+                    prime = False
+                    break
+            if prime:
                 result.append(each)
             
         return result
         
 s = Solution()
-print(s.enumeratePrimes(1))
+print(s.enumeratePrimes(8))
