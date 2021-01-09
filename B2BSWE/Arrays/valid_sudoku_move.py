@@ -46,15 +46,12 @@ class Solution:
         
         row_index = 0
         for row_index in range(rows):
+            
+            if not self.validate_row_block(board[row_index]):
+                return False
+                    
             hashset = set()
-            row_validated = False
             for col_index in range(cols):
-                
-                # Validate each row
-                if not row_validated:                    
-                    row_validated = True
-                    if not self.validate_row_block(board[row_index]):
-                        return False
                 
                 # Validate each columns
                 current = board[col_index][row_index]
@@ -90,5 +87,5 @@ input = [
         ,[0,6,0,0,0,0,2,8,0]
         ,[0,0,0,4,1,9,0,0,5]
         ,[0,0,0,0,8,0,0,7,9]
-        ]
+    ]
 print(s.validSudoku(input))
