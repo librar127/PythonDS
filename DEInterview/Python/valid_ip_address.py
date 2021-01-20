@@ -12,12 +12,15 @@ def isValidateIPAddress(ip_address):
             int_ip_part = int(each)
             if (int_ip_part < 0) or (int_ip_part > 255):
                 return False
+            if str(int_ip_part) != each:
+                return False
+            
         except:
             return False
     
     return True
 
 
-ip_adddess = "127.0.0.b"
-ip_adddess = "0.0.0.0"
+ip_adddess = "127.0.07.255"
+ip_adddess = "0.0.0.1"
 print(isValidateIPAddress(ip_adddess))
