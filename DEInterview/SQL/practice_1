@@ -1,0 +1,33 @@
+/*
+https://www.programmerinterview.com/database-sql/practice-interview-question-1/
+*/
+1. The names of all salespeople that have an order with Samsonic.
+select S.name 
+from Salesperson S
+join Orders O
+ON S.ID = O.salesperson_id
+JOIN Customer C
+ON O.cust_id = C.ID
+WHERE C.NAME = 'Samsonic'
+
+
+2. The names of all salespeople that do not have any order with Samsonic.
+select distinct name from Salesperson where name not in  
+(select S.name 
+from Salesperson S
+join Orders O
+ON S.ID = O.salesperson_id
+JOIN Customer C
+ON O.cust_id = C.ID
+WHERE C.NAME = 'Samsonic')
+
+3. The names of salespeople that have 2 or more orders.
+select S.name 
+from Salesperson S
+JOIN Orders O 
+ON S.id = O.salesperson_id 
+group by S.NAME
+having count(*) > 1
+
+4. Write a SQL statement to insert rows into a table called highAchiever(Name, Age), where a salesperson must have a salary of 100,000 or greater to be included in the table
+CREATE TABLE `highAchiever` AS SELECT Name, Age from Salesperson where SALARY>100000;
