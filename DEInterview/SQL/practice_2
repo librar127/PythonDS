@@ -1,0 +1,15 @@
+-- find the largest order amount for each salesperson and the associated order number, along with the customer to whom that order belongs to.
+-- https://www.programmerinterview.com/database-sql/advanced-sql-interview-questions-continued-part-2/
+
+SELECT P.Name, S.max_amount, O.Number, C.NAME
+FROM Orders O
+JOIN
+(SELECT salesperson_id, max(Amount) max_amount
+from Orders
+group by salesperson_id) S
+ON O.salesperson_id = S.salesperson_id
+AND O.Amount = S.max_amount
+JOIN Customer C
+ON O.cust_id = C.ID
+JOIN Salesperson P
+ON P.ID = S.salesperson_id
