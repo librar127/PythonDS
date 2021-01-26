@@ -9,6 +9,5 @@ def countSetBits(num):
             
     return result
 
-
 n = 17
 print(countSetBits(n))
