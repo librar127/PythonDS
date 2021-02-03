@@ -1,0 +1,16 @@
+
+-- Given the above Employee table, the nth highest salary where n = 2 is 200. If there is no nth highest salary, then the query should return null
+-- https://leetcode.com/problems/nth-highest-salary/
+
+
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  RETURN (
+      with sal_order as (SELECT
+        dense_rank() over (order by Salary DESC) as row_id,
+        salary from Employee)
+      
+      select distinct sal from 
+      (select case when row_id = N then salary else null end sal from sal_order)t order by sal desc limit 1
+  );
+END
