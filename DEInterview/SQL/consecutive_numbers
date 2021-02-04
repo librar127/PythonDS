@@ -1,0 +1,12 @@
+-- Write your MySQL query statement below
+-- Write an SQL query to find all numbers that appear at least three times consecutively. Return the result table in any order.
+-- https://leetcode.com/problems/consecutive-numbers/
+
+select distinct A.NUM ConsecutiveNums
+from Logs A
+Join Logs B
+ON A.id+1 = B.id
+join Logs C
+on B.id+1 = C.id
+AND A.num = B.NUM
+AND B.NUM = C.NUM
