@@ -1,0 +1,12 @@
+SELECT
+    ID,
+    NAME,
+    SURNAME
+FROM
+    Suspect
+WHERE 
+    HEIGHT <= '170cm'
+AND
+    UPPER(NAME) LIKE 'B%'
+AND
+    UPPER(SURNAME) LIKE 'GRE_N';
