@@ -47,3 +47,12 @@ with nT as (
   group by facid)
   
  select facid, total from nT where rank=1;
+
+ -- 5. Rank members by (rounded) hours used
+ select m.firstname, m.surname, round((sum(b.slots)+10)/20, 0)*10  as hours,
+rank() over(order by round((sum(b.slots)+10)/20, 0)*10 desc) rank
+from cd.members m
+join cd.bookings b
+on m.memid = b.memid
+group by m.firstname, m.surname
+order by rank, m.surname, m.firstname
