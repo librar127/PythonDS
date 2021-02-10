@@ -33,3 +33,8 @@ order by mems.memid;
 select count(*) over() as count, firstname, surname
 from cd.members 
 order by joindate;
+
+-- 3. Produce a numbered list of members
+select row_number() over(order by joindate) row_number,
+firstname, surname
+from cd.members;
