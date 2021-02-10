@@ -104,3 +104,21 @@ select name, initialoutlay*1.0/(revenue - monthlymaintenance) months
 from nT
 order by name;
 
+
+-- 9. Calculate a rolling average of total revenue -- My answer - does not match with given solution though
+with nT as(
+select date(starttime) as date, sum(case
+				when memid = 0 then slots * f.guestcost
+				else slots * membercost
+			end) revenue
+from cd.facilities f
+join cd.bookings b
+on f.facid = b.facid
+  
+where extract(month from starttime) = 8 and extract(year from starttime)=2012
+group by date(starttime) order by date)
+  
+
+select date, avg(revenue) over (order by date rows between 15 preceding and current row) revenue
+from nT;
+
