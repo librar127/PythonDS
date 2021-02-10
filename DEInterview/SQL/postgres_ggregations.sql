@@ -71,3 +71,20 @@ select name, rank from (
 	) as subq
 	where rank <= 3
 order by rank;  
+
+with nT as (
+select f.name, ntile(3) over (order by sum(case
+				when memid = 0 then slots * f.guestcost
+				else slots * membercost
+			end) desc) as class
+from cd.bookings b
+inner join cd.facilities f
+on b.facid = f.facid			
+group by f.name)
+
+
+-- 7. Classify facilities by value
+select name, case when class=1 then 'high' when class=2 then 'average' else 'low' end as revenue
+from nT order by class, name
+
+
