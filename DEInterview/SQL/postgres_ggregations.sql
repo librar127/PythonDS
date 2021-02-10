@@ -28,3 +28,8 @@ select mems.surname, mems.firstname, mems.memid, min(bks.starttime) as starttime
 	where starttime >= '2012-09-01'
 	group by mems.surname, mems.firstname, mems.memid
 order by mems.memid;
+
+-- 2. Produce a list of member names, with each row containing the total member count
+select count(*) over() as count, firstname, surname
+from cd.members 
+order by joindate;
