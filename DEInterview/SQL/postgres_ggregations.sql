@@ -88,3 +88,19 @@ select name, case when class=1 then 'high' when class=2 then 'average' else 'low
 from nT order by class, name
 
 
+-- 8. Calculate the payback time for each facility
+with nT as 
+(select f.name, avg(f.monthlymaintenance) as monthlymaintenance, avg(f.initialoutlay) as initialoutlay,
+ 			(sum(case
+				when memid = 0 then slots * f.guestcost
+				else slots * membercost
+			end))/3 revenue 
+from cd.facilities f
+join cd.bookings b
+on f.facid = b.facid
+group by f.name)
+
+select name, initialoutlay*1.0/(revenue - monthlymaintenance) months
+from nT
+order by name;
+
