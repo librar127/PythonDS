@@ -11,3 +11,8 @@ WHERE DESCRIPTION is NULL
 OR UPPER(trim(DESCRIPTION)) = 'NULL'
 OR trim(DESCRIPTION) = '-'
 OR UPPER(trim(DESCRIPTION)) = 'NIL';
+
+-- LegCount
+SELECT SUM(CASE WHEN type = 'human' then 2 else 4 end) as summary_legs
+FROM creatures
+ORDER BY id;
