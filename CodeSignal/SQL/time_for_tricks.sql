@@ -28,3 +28,9 @@ SELECT name
 FROM people_interests
 WHERE interests & (find_in_set('reading', interests) > 0) AND interests & (find_in_set('drawing', interests) > 0)
 ORDER BY name;
+
+-- Personal Hobbies
+SELECT name
+FROM people_hobbies
+WHERE hobbies & (find_in_set('sports', hobbies) > 0) AND hobbies & (find_in_set('reading', hobbies) > 0)
+ORDER BY name;
