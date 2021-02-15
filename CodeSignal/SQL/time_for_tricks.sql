@@ -34,3 +34,10 @@ SELECT name
 FROM people_hobbies
 WHERE hobbies & (find_in_set('sports', hobbies) > 0) AND hobbies & (find_in_set('reading', hobbies) > 0)
 ORDER BY name;
+
+-- Books Catalog
+SELECT
+    DISTINCT SUBSTRING_INDEX(EXTRACTVALUE(xml_doc, "//author"), " ", 2)author
+FROM    
+    catalogs
+ORDER BY author;
