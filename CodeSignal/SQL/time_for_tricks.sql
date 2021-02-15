@@ -16,3 +16,9 @@ OR UPPER(trim(DESCRIPTION)) = 'NIL';
 SELECT SUM(CASE WHEN type = 'human' then 2 else 4 end) as summary_legs
 FROM creatures
 ORDER BY id;
+
+
+-- Combination Lock - Copy
+SET @comb = 1;
+SELECT max(@comb:= @comb*length(characters)) as combinations
+FROM discs;  
