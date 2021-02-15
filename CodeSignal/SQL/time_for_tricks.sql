@@ -22,3 +22,9 @@ ORDER BY id;
 SET @comb = 1;
 SELECT max(@comb:= @comb*length(characters)) as combinations
 FROM discs;  
+
+-- Find in SET
+SELECT name
+FROM people_interests
+WHERE interests & (find_in_set('reading', interests) > 0) AND interests & (find_in_set('drawing', interests) > 0)
+ORDER BY name;
