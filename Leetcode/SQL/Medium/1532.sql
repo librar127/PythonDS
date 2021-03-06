@@ -1,4 +1,4 @@
--- Write your MySQL query statement below
+# Write your MySQL query statement below
 
 WITH nT AS
 (
@@ -27,5 +27,6 @@ WHERE
     rn < 4
 ORDER BY
     customer_name, 
-    customer_id
+    customer_id,
+    order_date DESC
     
