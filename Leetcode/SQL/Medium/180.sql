@@ -1,5 +1,25 @@
 -- Write your MySQL query statement below
 
+-- First Solution
+SELECT    
+    DISTINCT
+    A.num ConsecutiveNums
+FROM
+    Logs A
+JOIN
+    Logs B
+ON
+    A.id+1 = B.id
+JOIN
+    Logs C
+ON
+    B.id+1 = C.id
+AND
+    A.num = B.num
+AND
+    B.num = C.num
+
+-- Second Solution
 SELECT
     DISTINCT
     A.num ConsecutiveNums
