@@ -59,7 +59,7 @@ input = [
     ["m0","p0","end",9.933]
 ]
 process_input(input)
-
+'''
 Sample output
 =============
 [
@@ -74,3 +74,4 @@ Sample output
     ['m0', 'p2', 4.618, 5.497], 
     ['m0', 'p2', 6.324, 6.673]
 ]
+'''
