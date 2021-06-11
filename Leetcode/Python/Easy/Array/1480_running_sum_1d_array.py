@@ -1,6 +1,6 @@
 
 class Solution:
-    def runningSum(self, nums: List[int]) -> List[int]:
+    def runningSum(self, nums):
         result = []
         for index, each in enumerate(nums):
             if index > 0:
